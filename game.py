@@ -117,4 +117,4 @@ class Game:
         actual_score, actual_score_rect = text_utils.get_centered_message("Your score: " + str(self.points),
                                                                         height=half_screen_height + 150)
         self.screen.blit(actual_score, actual_score_rect)
-        self.screen.blit(death_score, death_score_rect)
+        self.screen.blit(death_score, death_score_rect) 
