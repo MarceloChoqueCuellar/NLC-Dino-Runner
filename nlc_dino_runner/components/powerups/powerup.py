@@ -3,6 +3,7 @@ from pygame.sprite import Sprite
 from nlc_dino_runner.utils.constants import SCREEN_HEIGHT
 import random
 
+
 class PowerUp(Sprite):
 
     def __init__(self, image, type):
