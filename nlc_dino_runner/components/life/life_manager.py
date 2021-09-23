@@ -5,7 +5,7 @@ class LifeManager:
     def __init__(self):
         self.life_list = []
 
-    def refull_lives(self):
+    def refill_lives(self):
         pos_x = 10
         for i in range(0, 5):
             self.life_list.append(Life(pos_x))
