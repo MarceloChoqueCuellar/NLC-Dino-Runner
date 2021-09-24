@@ -3,8 +3,19 @@ import pygame
 from nlc_dino_runner.components import text_utils
 from nlc_dino_runner.components.life.life_manager import LifeManager
 from nlc_dino_runner.components.obstacles.obstaclesManager import ObstaclesManager
+<<<<<<< HEAD
 from nlc_dino_runner.components.powerups.power_up_manager import PowerUpManager
 from nlc_dino_runner.utils.constants import TITLE, ICON, SCREEN_WIDTH, SCREEN_HEIGHT, BG, FPS, CLOUD, RESET
+=======
+<<<<<<< Updated upstream
+from nlc_dino_runner.utils.constants import TITLE, ICON, SCREEN_WIDTH, SCREEN_HEIGHT, BG, FPS, SMALL_CACTUS, \
+    LARGE_CACTUS
+=======
+from nlc_dino_runner.components.powerups.power_up_manager import PowerUpManager
+from nlc_dino_runner.utils.constants import TITLE, ICON, SCREEN_WIDTH, SCREEN_HEIGHT, BG, FPS, CLOUD, RESET, GAME_OVER, \
+    NORMAL_MODE, DARK_MODE
+>>>>>>> Stashed changes
+>>>>>>> main
 from nlc_dino_runner.components.dinosaur import Dinosaur
 import random
 
@@ -97,7 +108,15 @@ class Game:
         self.obstacle_manager.reset_obstacles()
         self.power_up_manager.reset_power_ups(self.points, self.player)
         self.playing = True
+<<<<<<< HEAD
         self.life_manager.refill_lives()
+=======
+<<<<<<< Updated upstream
+=======
+        self.life_manager.refill_lives()
+        self.game_speed = 20
+>>>>>>> Stashed changes
+>>>>>>> main
         while self.playing:
             self.event()
             self.update()
@@ -116,8 +135,20 @@ class Game:
 
     def draw(self):
         self.clock.tick(FPS)
+<<<<<<< HEAD
         self.screen.fill((255, 255, 255))
         self.score()
+=======
+<<<<<<< Updated upstream
+        self.screen.fill((255,255,255))
+=======
+        if self.points >= 1000:
+            self.screen.fill(DARK_MODE)
+        else:
+            self.screen.fill(NORMAL_MODE)
+        self.score()
+>>>>>>> Stashed changes
+>>>>>>> main
         self.draw_background()
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
@@ -145,8 +176,20 @@ class Game:
             self.screen.blit(BG, (self.x_pos_bg + image_width, self.y_pos_bg))
             self.x_pos_bg = 0
         self.x_pos_bg -= self.game_speed
+        self.draw_clouds()
 
+<<<<<<< HEAD
         #drawing the clouds
+=======
+<<<<<<< Updated upstream
+    def execute(self):
+        while self.running:
+            if not self.playing:
+                self.show_menu()
+=======
+    def draw_clouds(self):    #drawing the clouds
+>>>>>>> Stashed changes
+>>>>>>> main
 
         self.screen.blit(CLOUD, (self.x_pos_cloud1, self.y_pos_cloud1))
         self.screen.blit(CLOUD, (self.x_pos_cloud2, self.y_pos_cloud2))
@@ -173,5 +216,28 @@ class Game:
             self.x_pos_cloud4 = SCREEN_WIDTH
             self.y_pos_cloud4 = random.randint(100, 250)
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+    def print_menu_elements(self):
+        half_screen_height = SCREEN_HEIGHT // 2
+=======
+    def death(self):
+        self.clock.tick(FPS)
+        self.screen.fill((255, 255, 255))
+        self.score()
+        self.draw_background()
+        self.player.draw(self.screen)
+        self.obstacle_manager.draw(self.screen)
+        self.power_up_manager.draw(self.screen)
+        self.life_manager.draw(self.screen)
+        self.game_over()
+        pygame.display.update()
+        pygame.display.flip()
+
+    def game_over(self):
+        self.screen.blit(GAME_OVER, ((SCREEN_WIDTH // 2) - 180, (SCREEN_HEIGHT // 2) - 180))
+>>>>>>> Stashed changes
+>>>>>>> main
 
 

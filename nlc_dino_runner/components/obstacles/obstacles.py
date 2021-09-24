@@ -11,7 +11,16 @@ class Obstacles(Sprite):
         self.rect = self.image[self.obstacle_type].get_rect()
         self.rect.x = SCREEN_HEIGHT + random.randint(800, 1000)# 1100
 
+<<<<<<< HEAD
     def update(self, game_speed, obstacles_list):
+=======
+<<<<<<< Updated upstream
+    def update (self, game_speed, obstacles_list):
+=======
+    def update(self, game_speed, obstacles_list):
+
+>>>>>>> Stashed changes
+>>>>>>> main
         self.rect.x -= game_speed
         if self.rect.x < -self.rect.width:
             obstacles_list.pop(0)

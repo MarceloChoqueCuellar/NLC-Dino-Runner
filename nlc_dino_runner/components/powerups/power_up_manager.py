@@ -40,7 +40,11 @@ class PowerUpManager:
         for power_up in self.power_ups:
             power_up.update(game_speed, self.power_ups)
             if player.dino_rect.colliderect(power_up.rect):
+<<<<<<< HEAD
                 power_up.start_time = pygame.time.get_ticks ()
+=======
+                power_up.start_time = pygame.time.get_ticks()
+>>>>>>> main
 
                 player.type = power_up.type
                 time_random = random.randrange(5, 8)
@@ -54,9 +58,17 @@ class PowerUpManager:
                     player.shield_time_up = power_up.start_time + (time_random * 1000)
 
                 if player.type == HAMMER_TYPE:
+<<<<<<< HEAD
                     player.hammer = True
                     player.hammer_time_up = power_up.start_time + (time_random * 1000)
                     self.hammer.hammers_left = 3
+=======
+                    self.hammer.count_hammers = True
+                    player.hammer = True
+                    player.hammer_time_up = power_up.start_time + (time_random * 1000)
+                    self.hammer.hammers_left = 3
+
+>>>>>>> main
         user_input = pygame.key.get_pressed()
         if user_input[pygame.K_SPACE] and player.hammer and not self.throwing_hammer and self.hammer.hammers_left:
             self.throwing_hammer = True
@@ -75,3 +87,10 @@ class PowerUpManager:
         if self.throwing_hammer:
             self.hammer.draw_hammer(screen)
 
+<<<<<<< HEAD
+=======
+        if self.hammer.hammers_left > 0:
+            self.hammer.draw_left_hammers(screen)
+
+
+>>>>>>> main

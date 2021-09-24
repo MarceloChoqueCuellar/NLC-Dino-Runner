@@ -102,6 +102,17 @@ class Dinosaur(Sprite):
             self.dino_jump = False
             self.jump_vel = self.JUMP_VEL
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+    def duck(self):
+        self.image = DUCKING[0] if self.step_index < 5 else DUCKING[1]
+        self.dino_rect = self.image.get_rect()
+        self.dino_rect.x = self.X_POS
+        self.dino_rect.y = self.Y_POS_DUCK
+        self.step_index +=1
+=======
+>>>>>>> main
     def check_invincibility(self, screen):
         if self.shield:
             time_to_show = round((self.shield_time_up - pygame.time.get_ticks())/1000, 1)
@@ -115,6 +126,16 @@ class Dinosaur(Sprite):
                     text, text_rect = get_centered_message(f"Shield enabled for time: {time_to_show}", width=500, height=40, size=20)
                     screen.blit(text, text_rect)
 
+<<<<<<< HEAD
     def draw(self, screen):
         screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
 
+=======
+
+
+    def draw(self, screen):
+        screen.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
+
+
+>>>>>>> Stashed changes
+>>>>>>> main
