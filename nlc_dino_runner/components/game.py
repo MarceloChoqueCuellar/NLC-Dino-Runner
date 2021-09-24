@@ -4,8 +4,14 @@ from nlc_dino_runner.components import text_utils
 from nlc_dino_runner.components.obstacles.cactus import Cactus
 from nlc_dino_runner.components.obstacles.obstacles import Obstacles
 from nlc_dino_runner.components.obstacles.obstaclesManager import ObstaclesManager
+<<<<<<< Updated upstream
 from nlc_dino_runner.utils.constants import TITLE, ICON, SCREEN_WIDTH, SCREEN_HEIGHT, BG, FPS, SMALL_CACTUS, \
     LARGE_CACTUS
+=======
+from nlc_dino_runner.components.powerups.power_up_manager import PowerUpManager
+from nlc_dino_runner.utils.constants import TITLE, ICON, SCREEN_WIDTH, SCREEN_HEIGHT, BG, FPS, CLOUD, RESET, GAME_OVER, \
+    NORMAL_MODE, DARK_MODE
+>>>>>>> Stashed changes
 from nlc_dino_runner.components.dinosaur import Dinosaur
 from nlc_dino_runner.utils.constants import ICON
 
@@ -33,6 +39,11 @@ class Game:
         self.obstacle_manager.reset_obstacles()
         self.points = 0
         self.playing = True
+<<<<<<< Updated upstream
+=======
+        self.life_manager.refill_lives()
+        self.game_speed = 20
+>>>>>>> Stashed changes
         while self.playing:
             self.event()
             self.update()
@@ -51,7 +62,15 @@ class Game:
 
     def draw(self):
         self.clock.tick(FPS)
+<<<<<<< Updated upstream
         self.screen.fill((255,255,255))
+=======
+        if self.points >= 1000:
+            self.screen.fill(DARK_MODE)
+        else:
+            self.screen.fill(NORMAL_MODE)
+        self.score()
+>>>>>>> Stashed changes
         self.draw_background()
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
@@ -77,11 +96,16 @@ class Game:
             self.screen.blit(BG, (self.x_pos_bg + image_width, self.y_pos_bg))
             self.x_pos_bg= 0
         self.x_pos_bg -= self.game_speed
+        self.draw_clouds()
 
+<<<<<<< Updated upstream
     def execute(self):
         while self.running:
             if not self.playing:
                 self.show_menu()
+=======
+    def draw_clouds(self):    #drawing the clouds
+>>>>>>> Stashed changes
 
     def show_menu(self):
         self.running = True
@@ -106,8 +130,26 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 self.run()
 
+<<<<<<< Updated upstream
     def print_menu_elements(self):
         half_screen_height = SCREEN_HEIGHT // 2
+=======
+    def death(self):
+        self.clock.tick(FPS)
+        self.screen.fill((255, 255, 255))
+        self.score()
+        self.draw_background()
+        self.player.draw(self.screen)
+        self.obstacle_manager.draw(self.screen)
+        self.power_up_manager.draw(self.screen)
+        self.life_manager.draw(self.screen)
+        self.game_over()
+        pygame.display.update()
+        pygame.display.flip()
+
+    def game_over(self):
+        self.screen.blit(GAME_OVER, ((SCREEN_WIDTH // 2) - 180, (SCREEN_HEIGHT // 2) - 180))
+>>>>>>> Stashed changes
 
         text, text_rect = text_utils.get_centered_message("Press any key to start")
         self.screen.blit(text, text_rect)
