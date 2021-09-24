@@ -1,6 +1,5 @@
 from nlc_dino_runner.components.obstacles.obstacles import Obstacles
 import random
-from nlc_dino_runner.utils.constants import BIRD
 
 
 class Bird(Obstacles):
@@ -22,7 +21,3 @@ class Bird(Obstacles):
         self.rect.x -= 5
         if self.step_index >= 10:
             self.step_index = 0
-
-
-
-

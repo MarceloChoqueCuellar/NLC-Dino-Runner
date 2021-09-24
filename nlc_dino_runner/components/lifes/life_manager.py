@@ -1,0 +1,26 @@
+from nlc_dino_runner.components.lifes.life import Life
+
+
+class LifeManager:
+    def __init__(self):
+        self.life_list = []
+
+    def refill_lives(self):
+        pos_x = 10
+        for i in range(0, 5):
+            self.life_list.append(Life(pos_x))
+            pos_x += 30
+
+    def update(self,mode):
+        for life in self.life_list:
+            life.update(mode)
+
+    def draw(self, screen):
+        for life in self.life_list:
+            life.draw(screen)
+
+    def delete_life(self):
+        self.life_list.pop()
+
+    def life_counter(self):
+        return len(self.life_list)

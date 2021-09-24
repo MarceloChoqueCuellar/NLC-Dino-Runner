@@ -3,6 +3,7 @@ from nlc_dino_runner.utils.constants import HAMMER, HAMMER_TYPE, SCREEN_WIDTH
 
 
 class Hammer(PowerUp):
+
     def __init__(self):
         self.image = HAMMER
         self.type = HAMMER_TYPE
@@ -16,23 +17,21 @@ class Hammer(PowerUp):
         self.rect.y = dino_rect.y
 
     def update_hammer(self, game_speed, powerup):
-
         self.rect.x += game_speed + 10
         if self.rect.x >= SCREEN_WIDTH:
             self.rect.x = -200
             powerup.throwing_hammer = False
 
-    def draw_hammer(self, screen):
-        screen.blit(self.image, self.rect)
+    def draw_hammer(self, screen, mode):
+        screen.blit(self.image[mode], self.rect)
 
-    def draw_left_hammers(self, screen):
+    def draw_left_hammers(self, screen, mode):
         counter = 0
 
         for pos_hammer in self.hammers_pos:
 
             if counter < self.hammers_left:
-                screen.blit(self.image, pos_hammer)
+                screen.blit(self.image[mode], pos_hammer)
             counter += 1
-
 
 
